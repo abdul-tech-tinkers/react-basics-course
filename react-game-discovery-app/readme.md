@@ -39,10 +39,24 @@ color?: "primary" | "secondary" | "danger"; //allowable values
 
 ```
 
-- In React apps, a component can only return a single element. To return multiple elements, we wrap them in a fragment, which is represented by empty angle brackets.
+- In React apps, a **component** can only return a single element. To return multiple elements, we wrap them in a `fragment`, which is represented by empty angle brackets.
+  ```js
+      <>
+      <h1>{heading}</h1>
+      <div></div>
+      </>
+  ```
   
 - To render a list in JSX, we use the ‘array.map()’ method. When mapping items, each item must have a unique key, which can be a string or a number. 
 - To conditionally render content, we can use an ‘if’ statement or a ternary operator. 
+  
+```js
+     {isShowAlert && (
+        <Alerts onClose={() => showAlert(false)}>
+          My <b>Alert</b>
+        </Alerts>
+      )}
+```
 - We use the state hook to define state (data that can change over time) in a component. A hook is a function that allows us to tap into built-in features in React. 
 - Components can optionally have props (short for properties) to accept input. 
 - We can pass data and functions to a component using props. Functions are used to notify the parent (consumer) of a component about certain events that occur in the component, such as an item being clicked or selected.
@@ -55,3 +69,25 @@ color?: "primary" | "secondary" | "danger"; //allowable values
 - We should treat props as immutable (read-only) and not modify them. 
 - When the state or props of a component change, React will re-render the component and update the DOM accordingly. 
 
+
+## Popular UI Libraries
+- Bootstrap
+- Material UI
+- Tailwind CSS
+- daisy UI simillar to bootstrap
+  - `Chakra UI` simillar to material ui but built on top of tailwind 
+    - it has prebuilt components develop on top of components
+    - react `component library` built on top of `tailwind`
+  
+## Icons
+ - react icons
+
+```js
+npm i react-icons@4.7.1
+```
+
+```js
+import { BsFillCalendarFill } from "react-icons/bs";
+
+<BsFillCalendarFill color="red" size="100" />
+```

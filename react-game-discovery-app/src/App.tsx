@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Message from "./Message";
-import ListGroup from "./components/ListGroup";
+import ListGroup from "./components/ListGroup/ListGroup";
 import Alerts from "./components/Alerts";
 import Buttons from "./components/Buttons";
 function App() {

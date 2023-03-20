@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { BsFillCalendarFill } from "react-icons/bs";
 interface Props {
   children: ReactNode; // you can pass html content as well to Alert componentn
   /**
@@ -16,6 +17,7 @@ const Alerts = ({ children, color = "primary", onClose }: Props) => {
       role="alert"
     >
       {children}
+      <BsFillCalendarFill color="red" />
       <button
         onClick={onClose}
         type="button"
