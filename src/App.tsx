@@ -10,8 +10,19 @@ function App() {
   const [count, setCount] = useState(0);
   const cities: string[] = ["New York", "Bangalore", "Seattle", "Hyderabad"];
   const [isShowAlert, showAlert] = useState(false);
+  const [tags, setTags] = useState(["happy", "cheerful"]);
+
   function OnSelectItemHandler(item: string): void {
     console.log(item);
+
+    // add
+    setTags([...tags, "exiciting"]);
+
+    // Remove
+    setTags(tags.filter((tag) => tag !== "happy"));
+
+    // update
+    setTags(tags.map((tag) => (tag === "happy" ? "happyness" : tag)));
   }
 
   return (

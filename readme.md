@@ -71,6 +71,9 @@ color?: "primary" | "secondary" | "danger"; //allowable values
 
 
 ## Popular UI Libraries
+
+There are several UI libraries available that can assist us in quickly building beautiful and modern applications. Some popular options include Bootstrap, Material UI, TailwindCSS, DaisyUI, ChakraUI, and more.
+
 - Bootstrap
 - Material UI
 - Tailwind CSS
@@ -90,4 +93,18 @@ npm i react-icons@4.7.1
 import { BsFillCalendarFill } from "react-icons/bs";
 
 <BsFillCalendarFill color="red" size="100" />
+```
+
+# State Management
+- react update state asynchronously - to avoid unnecassary renders
+- state is stored outside of the component
+- use the hooks at the top level of the component.
+- keep ur component `pure`. Render same output for given input props.
+- state objects to be treated as immutable and read only, create new object and then set it.
+- **Rule of Thumb:** A Component that holds the state should be responsible for updating the state, not by child component.
+- state object are immutable dont update them in the component, always use the hook paramter set[Name] e.g. `setIsLoading(true)`
+
+Update state of array of object or object with draft
+```js
+npm i immer@9.0.19
 ```
