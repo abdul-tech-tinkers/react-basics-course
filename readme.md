@@ -127,3 +127,18 @@ To share state between components, we should lift the state up to the closest pa
 - The component that holds some state should be the one that updates it. If a child component needs to update some state, it should notify the parent component using a callback function passed down as a prop
 
 # Forms
+
+- `React Hook Forms`
+- `Zod` - Data Validation
+
+```js
+npm i react-hook-form@7.43
+npm i zod@3.20.6
+```
+
+integrate react hook form with zod
+```js
+npm i @hookform/resolvers@2.9.11
+```
+
+e.g [Sample Form](src/components/Form.tsx)

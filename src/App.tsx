@@ -7,6 +7,12 @@ import ListGroup from "./components/ListGroup/ListGroup";
 import Alerts from "./components/Alerts";
 import Buttons from "./components/Buttons";
 import ExpandableText from "./components/ExpandableText";
+import Form from "./components/Form";
+import ExpenseList from "./expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
+import ExpenseForm from "./expense-tracker/components/ExpenseForm";
+export const categories = ["Groceries", "Utilities", "Eatry"];
+
 function App() {
   const [count, setCount] = useState(0);
   const cities: string[] = ["New York", "Bangalore", "Seattle", "Hyderabad"];
@@ -75,14 +81,59 @@ function App() {
     setTags(tags.map((tag) => (tag === "happy" ? "happyness" : tag)));
   }
 
+  const [expenses, setExpenses] = useState([
+    {
+      id: 1,
+      description: "aaa",
+      amount: 10,
+      category: "Eatry",
+    },
+    {
+      id: 2,
+      description: "bbb",
+      amount: 5,
+      category: "Utilites",
+    },
+    {
+      id: 3,
+      description: "ccc",
+      amount: 2,
+      category: "Eatry",
+    },
+    {
+      id: 4,
+      description: "ddd",
+      amount: 10,
+      category: "Groceries",
+    },
+  ]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const visibleExpenses = selectedCategory
+    ? expenses.filter((e) => e.category == selectedCategory)
+    : expenses;
+
+  const onDeleteHandler = (id: Number) => {
+    setExpenses(expenses.filter((p) => p.id !== id));
+  };
+  const onSelectCategory = (category: string) => {
+    console.log(category);
+    setSelectedCategory(category);
+  };
   return (
     <div>
+      <div className="mb-12">
+        <ExpenseForm />
+      </div>
+      <div className="mb-3">
+        <ExpenseFilter onSelectCategory={onSelectCategory} />
+      </div>
+      <ExpenseList expenses={visibleExpenses} onDelete={onDeleteHandler} />
+      {/* <Form /> */}
       {/* <ListGroup
         items={cities}
         heading="Cities"
         onSelectItem={OnSelectItemHandler}
       /> */}
-
       {/* {isShowAlert && (
         <Alerts onClose={() => showAlert(false)}>
           My <b>Alert</b>
@@ -98,8 +149,7 @@ function App() {
           Hello World
         </Buttons>
       )} */}
-
-      <ExpandableText maxChars={245}>
+      {/* <ExpandableText maxChars={245}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pellentesque id nibh
         tortor id. Nibh venenatis cras sed felis eget velit aliquet sagittis id.
@@ -118,7 +168,7 @@ function App() {
         sed
       </ExpandableText>
 
-      <ExpandableText>Hello world</ExpandableText>
+      <ExpandableText>Hello world</ExpandableText> */}
     </div>
   );
 }
