@@ -11,7 +11,7 @@ import Form from "./components/Form";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 import ExpenseForm from "./expense-tracker/components/ExpenseForm";
-export const categories = ["Groceries", "Utilities", "Eatry"];
+import categories from "./expense-tracker/Categories";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -122,7 +122,19 @@ function App() {
   return (
     <div>
       <div className="mb-12">
-        <ExpenseForm />
+        <ExpenseForm
+          onSubmit={(data) => {
+            console.log(data);
+            let newExpense = [
+              ...expenses,
+              { ...data, id: expenses.length + 1 },
+            ];
+            setExpenses(newExpense);
+          }}
+        />
+      </div>
+      <div>
+        <label>Filter</label>
       </div>
       <div className="mb-3">
         <ExpenseFilter onSelectCategory={onSelectCategory} />

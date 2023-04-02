@@ -16,6 +16,7 @@ const ExpenseList = ({ expenses, onDelete }: Expenses) => {
       <table className="table table-bordered">
         <thead>
           <tr>
+            <th>Id</th>
             <th>Description</th>
             <th>Amount</th>
             <th>Category</th>
@@ -43,6 +44,7 @@ const ExpenseList = ({ expenses, onDelete }: Expenses) => {
         </tbody>
         <tfoot>
           <tr>
+            <td></td>
             <td>Total</td>
             <td>
               $
