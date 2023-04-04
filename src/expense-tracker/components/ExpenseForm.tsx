@@ -91,7 +91,9 @@ const ExpenseForm = ({ onSubmit }: Props) => {
         )}
       </div>
       <div>
-        <button className="btn btn-primary">Add Expenses</button>
+        <button disabled={!isValid} className="btn btn-primary">
+          Add Expenses
+        </button>
       </div>
       <div className="mb-12">
         <br />
