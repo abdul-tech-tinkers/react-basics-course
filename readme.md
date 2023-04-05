@@ -8,7 +8,7 @@
 - [Connecting to Backend](#connecting-to-backend)
     - [useEffect Hook](#useeffect-hook)
 - [Game-Hub APP Development](#game-hub-app-development)
-  - [Dark theme support](#dark-theme-support)
+  - [Dark Theme support](#dark-theme-support)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
