@@ -8,6 +8,7 @@
 - [Connecting to Backend](#connecting-to-backend)
     - [useEffect Hook](#useeffect-hook)
 - [Game-Hub APP Development](#game-hub-app-development)
+  - [Dark theme support](#dark-theme-support)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
@@ -203,4 +204,43 @@ npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 ```
 
 - Replicate UI from [RawG](https://rawg.io/)
+
+## Dark Theme support 
+`theme.ts`
+
+```ts
+import { extendTheme, ThemeConfig } from "@chakra-ui/react";
+
+const config: ThemeConfig = {
+  initialColorMode: "dark",
+};
+
+const theme = extendTheme({ config });
+export default theme;
+```
+main.tsx
+
+```tsx
+ <ChakraProvider theme={theme}>
+    <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
+    <App />
+  </ChakraProvider>
+```
+ColorModeSwitch.tsx
+
+```ts
+import { HStack, Switch, Text, useColorMode } from '@chakra-ui/react'
+
+const ColorModeSwitch = () => {
+  const {toggleColorMode, colorMode} = useColorMode();
+  return (
+   <HStack>
+    <Switch isChecked={colorMode==='dark'} onChange={toggleColorMode}/>
+    <Text>Dark Mode</Text>
+   </HStack>
+  )
+}
+
+export default ColorModeSwitch
+```
 
