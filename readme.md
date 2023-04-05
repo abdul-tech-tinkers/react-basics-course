@@ -1,4 +1,4 @@
-- [Installation](#installation)
+- [React - Installation](#react---installation)
   - [Getting Started](#getting-started)
   - [Building Components](#building-components)
   - [Popular UI Libraries](#popular-ui-libraries)
@@ -9,9 +9,11 @@
     - [useEffect Hook](#useeffect-hook)
 - [Game-Hub APP Development](#game-hub-app-development)
 
+[![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
+Link: [Deployed App on Azure Static App](https://ambitious-wave-0430f2910.2.azurestaticapps.net/)
 
-# Installation
+# React - Installation
 use `vite@latest` to setup react native app with `TypeScript`
 
 ``` node.js
@@ -199,4 +201,6 @@ npm i axios@1.3.4
 ```js
 npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 ```
+
+- Replicate UI from [RawG](https://rawg.io/)
 
