@@ -1,4 +1,17 @@
-# installation
+- [Installation](#installation)
+  - [Getting Started](#getting-started)
+  - [Building Components](#building-components)
+  - [Popular UI Libraries](#popular-ui-libraries)
+  - [Icons](#icons)
+- [State Management](#state-management)
+- [Forms](#forms)
+- [Connecting to Backend](#connecting-to-backend)
+    - [useEffect Hook](#useeffect-hook)
+- [Game-Hub APP Development](#game-hub-app-development)
+
+
+
+# Installation
 use `vite@latest` to setup react native app with `TypeScript`
 
 ``` node.js
@@ -20,7 +33,7 @@ npm create vite@latest
 - In browser-based apps, updating the DOM is done by a companion library called ReactDOM. In mobile apps, React Native uses native components to render the user interface.
 - Since React is just a library and not a framework like Angular or Vue, we often need other tools for concerns such as routing, state management, internationalization, form validation, etc
 
-## Buidling Components
+## Building Components
 
 ```js
 npm i bootstrap@5.2.3
@@ -178,4 +191,12 @@ npm i axios@1.3.4
 
 [Backend Summary doc](docs/6-%20Connecting%20to%20the%20Backend.pdf)
 
+
+# Game-Hub APP Development
+
+- install `chakra ui` 
+
+```js
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
 
