@@ -13,6 +13,7 @@ const useGames = () => {
         setIsLoading(true);
         let getGamesResponse = await gameService.getAll<GetGamesResponse>();
         setGames(getGamesResponse.data.results);
+        console.log(getGamesResponse.data.results);
       } catch (error: any) {
         setError(error.message);
       } finally {
