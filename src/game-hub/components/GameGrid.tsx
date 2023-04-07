@@ -1,19 +1,28 @@
 import useGames from "../hooks/useGames";
-import gameService, { Game, GetGamesResponse } from "../services/game-service";
-import { Text } from "@chakra-ui/react";
+import { Box, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
+import GameCard from "./GameCard";
 
 const GameGrid = () => {
-  const { error, games } = useGames();
+  const { error, games, isLoading } = useGames();
 
   return (
-    <>
-      {error && <Text>Error Loading Games.</Text>}
-      <ul>
-        {games.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
-    </>
+    // <>
+    //   {isLoading && <Spinner />}
+    //   {error && <Text>Error Loading Games.</Text>}
+    <SimpleGrid
+      columns={{
+        sm: 1,
+        md: 2,
+        lg: 3,
+      }}
+      spacing={5}
+      padding="10px"
+    >
+      {games.map((game) => (
+        <GameCard key={game.id} game={game} />
+      ))}
+    </SimpleGrid>
+    // </>
   );
 };
 
