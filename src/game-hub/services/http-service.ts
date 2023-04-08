@@ -1,3 +1,4 @@
+import { Axios, AxiosRequestConfig } from "axios";
 import apiClient from "./api-client";
 
 interface Entity {
@@ -13,6 +14,12 @@ class HttpService {
   getAll<T>() {
     return apiClient.get<T[]>(this.endpoint);
   }
+
+  getAllByConfiguration<T>(requestconfig?: AxiosRequestConfig) {
+    console.log("inside get all by configuration ");
+    return apiClient.get<T[]>(this.endpoint, { ...requestconfig });
+  }
+
   delete(id: number) {
     return apiClient.delete(this.endpoint + "/" + id);
   }

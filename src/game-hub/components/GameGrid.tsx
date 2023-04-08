@@ -10,10 +10,16 @@ import {
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
+import { Genre } from "../services/genres-service";
 
-const GameGrid = () => {
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+const GameGrid = ({ selectedGenre }: Props) => {
+  console.log(`selected genre ${selectedGenre?.id} - ${selectedGenre?.name}`);
   let endpoint = "/games";
-  const { data: games, error, isLoading } = useGames();
+  const { data: games, error, isLoading } = useGames(selectedGenre);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
@@ -31,15 +37,15 @@ const GameGrid = () => {
       >
         {isLoading &&
           skeletons.map((Skeleton) => (
-            <GameCardContainer>
+            <GameCardContainer key={Skeleton}>
               {" "}
-              <GameCardSkeleton key={Skeleton} />
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {error && <Text>Error Loading Games.</Text>}
 
         {games.map((game) => (
-          <GameCardContainer>
+          <GameCardContainer key={game.id}>
             <GameCard key={game.id} game={game} />
           </GameCardContainer>
         ))}

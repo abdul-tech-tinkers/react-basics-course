@@ -1,7 +1,8 @@
-import  { Game, GetGamesResponse } from "../services/game-service";
+import { Game, GetGamesResponse } from "../services/game-service";
+import { Genre } from "../services/genres-service";
 import useData from "./useData";
 
-const useGames = () => {
+const useGames = (selectedGenre: Genre | null) => {
   // ``;
   // const [games, setGames] = useState<Game[]>([]);
   // const [error, setError] = useState("");
@@ -25,6 +26,15 @@ const useGames = () => {
 
   // return { games, error, isLoading };
   let endpoint = "/games";
- return useData<Game>({endpoint});
+
+  return useData<Game>({
+    endpoint,
+    requestConfig: {
+      params: {
+        genres: selectedGenre?.id,
+      },
+    },
+    deps: [selectedGenre?.id],
+  });
 };
 export default useGames;
