@@ -2,6 +2,7 @@ import axios from "axios";
 import { Button, ButtonGroup, Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./game-hub/components/NavBar";
 import GameGrid from "./game-hub/components/GameGrid";
+import GenreList from "./game-hub/components/GenreList";
 function App() {
   return (
     <Grid
@@ -19,9 +20,11 @@ function App() {
         <NavBar />
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside">Aside</GridItem>
+        <GridItem area="aside">
+          <GenreList />
+        </GridItem>
       </Show>
-      <GridItem area="main" >
+      <GridItem area="main">
         <GameGrid />
       </GridItem>
     </Grid>
