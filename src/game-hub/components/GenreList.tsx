@@ -1,7 +1,10 @@
 import React from "react";
 import useGenres from "../hooks/useGenres";
+import useData from "../hooks/useData";
+import { Genre } from "../services/genres-service";
 const GenreList = () => {
-  const { genres, error, isLoading } = useGenres();
+  let endpoint = "/genres";
+  const { data: genres, error, isLoading } = useGenres();
   return (
     <ul>
       {genres.map((genre) => (
