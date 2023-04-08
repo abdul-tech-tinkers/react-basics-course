@@ -84,6 +84,7 @@ color?: "primary" | "secondary" | "danger"; //allowable values
 - We can pass data and functions to a component using props. Functions are used to notify the parent (consumer) of a component about certain events that occur in the component, such as an item being clicked or selected.
 - We should treat props as immutable (read-only) and not modify them. 
 - When the state or props of a component change, React will re-render the component and update the DOM accordingly. 
+- useState when ever you see the local variable changes over time by some data manipulation.
 
 
 ## Popular UI Libraries

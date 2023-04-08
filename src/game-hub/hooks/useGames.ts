@@ -5,19 +5,19 @@ const useGames = () => {
   ``;
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     async function GetAllGames() {
       try {
-        setIsLoading(true);
+        setLoading(true);
         let getGamesResponse = await gameService.getAll<GetGamesResponse>();
         setGames(getGamesResponse.data.results);
         console.log(getGamesResponse.data.results);
       } catch (error: any) {
         setError(error.message);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     }
     GetAllGames();
