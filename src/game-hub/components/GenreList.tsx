@@ -11,7 +11,7 @@ import {
   Spinner,
   Button,
 } from "@chakra-ui/react";
-import getCropppedImageUrl from "../services/image-url";
+import getCroppedImageUrl from "../services/image-url";
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
@@ -31,7 +31,7 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
             <Image
               boxSize="32px"
               borderRadius={8}
-              src={getCropppedImageUrl(genre.image_background)}
+              src={getCroppedImageUrl(genre.image_background)}
             ></Image>
             <Button
               fontSize="lg"
