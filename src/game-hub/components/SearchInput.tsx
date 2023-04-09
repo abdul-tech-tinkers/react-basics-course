@@ -1,12 +1,44 @@
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import {
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+} from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
-
-const SearchInput = () => {
+import { MdOutlineClose } from "react-icons/md";
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+const SearchInput = ({ onSearch }: Props) => {
+  const [searchText, setSearchText] = useState("");
   return (
-    <InputGroup>
-      <InputLeftElement children={<BsSearch />}></InputLeftElement>
-      <Input borderRadius={20} placeholder="Search games" variant="filled" />
-    </InputGroup>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        onSearch(searchText);
+      }}
+    >
+      <InputGroup>
+        <InputLeftElement children={<BsSearch />}></InputLeftElement>
+        <Input
+          onChange={(event) => setSearchText(event.target.value)}
+          borderRadius={20}
+          placeholder="Search games"
+          variant="filled"
+          value={searchText}
+        />
+        {searchText?.length > 0 && (
+          <InputRightElement
+            onClick={() => {
+              setSearchText("");
+              onSearch("");
+            }}
+            children={<MdOutlineClose />}
+          ></InputRightElement>
+        )}
+      </InputGroup>
+    </form>
   );
 };
 
