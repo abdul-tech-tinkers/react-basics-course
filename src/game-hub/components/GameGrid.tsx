@@ -19,6 +19,7 @@ interface Props {
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
+  console.log("ordering" + gameQuery?.ordering);
   let endpoint = "/games";
   const { data: games, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
