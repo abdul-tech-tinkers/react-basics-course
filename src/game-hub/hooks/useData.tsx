@@ -16,7 +16,7 @@ interface Props {
 
 const useData = <T,>({ endpoint, requestConfig, deps }: Props) => {
   ``;
-  console.log(`use Data Hook ${requestConfig?.params?.genres}`);
+  console.log(`use Data Hook ${requestConfig?.params?.platforms}`);
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);

@@ -1,8 +1,12 @@
 import { Game, GetGamesResponse } from "../services/game-service";
 import { Genre } from "../services/genres-service";
 import useData from "./useData";
+import { Platform } from "./usePlatforms";
 
-const useGames = (selectedGenre: Genre | null) => {
+const useGames = (
+  selectedGenre: Genre | null,
+  selectedPlatform: Platform | null
+) => {
   // ``;
   // const [games, setGames] = useState<Game[]>([]);
   // const [error, setError] = useState("");
@@ -32,9 +36,10 @@ const useGames = (selectedGenre: Genre | null) => {
     requestConfig: {
       params: {
         genres: selectedGenre?.id,
+        platforms: selectedPlatform?.id,
       },
     },
-    deps: [selectedGenre?.id],
+    deps: [selectedGenre?.id, selectedPlatform?.id],
   });
 };
 export default useGames;
