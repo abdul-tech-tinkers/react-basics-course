@@ -2,6 +2,7 @@ import useGames from "../hooks/useGames";
 import {
   Box,
   Center,
+  Heading,
   SimpleGrid,
   Skeleton,
   Spinner,
@@ -46,6 +47,7 @@ const GameGrid = ({ gameQuery }: Props) => {
           ))}
         {error && <Text>Error Loading Games.</Text>}
 
+        {games.length === 0 && <Heading>No Games</Heading>}
         {games.map((game) => (
           <GameCardContainer key={game.id}>
             <GameCard key={game.id} game={game} />
