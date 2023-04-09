@@ -30,8 +30,8 @@ const useData = <T,>({ endpoint, requestConfig, deps }: Props) => {
           let getResponse = await service.getAllByConfiguration<
             FetchResponse<T>
           >({ ...requestConfig });
-          setData(getResponse.data.results);
-          console.log(getResponse.data.results);
+          setData((getResponse.data).results);
+          console.log(getResponse.data?.results);
         } catch (error: any) {
           setError(error.message);
         } finally {

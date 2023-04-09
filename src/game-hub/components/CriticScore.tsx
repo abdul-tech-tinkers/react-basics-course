@@ -1,7 +1,8 @@
 import { Badge } from "@chakra-ui/react";
+import { number } from "zod";
 
 interface Props {
-  score: Number;
+  score: number;
 }
 const CriticScore = ({ score }: Props) => {
   let color = score > 75 ? "green" : score > 60 ? "yellow" : "";

@@ -245,3 +245,9 @@ const ColorModeSwitch = () => {
 export default ColorModeSwitch
 ```
 
+- deploy application to `vercel`
+
+```js
+npm i -g vercel
+vercel
+```
