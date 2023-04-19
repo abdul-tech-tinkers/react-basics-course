@@ -23,7 +23,7 @@ npm create vite@latest
 - React is a javascript library for creating user interface
 - `library` is a tool that provide specific functionality
 - while a `framework` is a set of tools and guidelines for building application
-- e.g. tool and toolset
+- e.g. tool and tool set
 - **react** is a tool for building user interface the only thing it does creating dynamic and interactive user interfaces
 
 ## Getting Started 
