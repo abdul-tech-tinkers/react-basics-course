@@ -9,6 +9,9 @@
     - [useEffect Hook](#useeffect-hook)
 - [Game-Hub APP Development](#game-hub-app-development)
   - [Dark Theme support](#dark-theme-support)
+- [React Query](#react-query)
+    - [React Query Dev Tools](#react-query-dev-tools)
+    - [React Query Configuration](#react-query-configuration)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
@@ -251,3 +254,93 @@ export default ColorModeSwitch
 npm i -g vercel
 vercel
 ```
+
+# React Query
+
+- normal axios fetching has no of problems like 
+  - not cancelling the request
+  - no separation of concerns
+  - no retries
+  - no automatic refresh
+  - no caching : caching=> the process of storing data in a place where it can be accessed more quickly and efficiently in the future
+- **ReactQuery** - powerful library for managing data fetching and caching in react applications.
+- Doesn't care how we fetch the data using fetchapi or axios. it is concerned about caching and managing data
+  
+![](docs/2023-04-20_12h24_10.tif)
+- Redux adds lot of complexity and biloperate code
+- Do not use redux for caching in future projects
+  
+```js
+ npm i @tanstack/react-query@4.28
+ ```
+
+main.tsx
+ ```js
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </React.StrictMode>
+);
+```
+
+- automatic retires - RQ retires 
+- caching 
+- auto refresh - after period of time
+- create hooks for data fetching
+
+>Define custom hook Todos.ts
+```js
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+export interface Todo {
+  id: number;
+  title: string;
+  userId: number;
+  completed: boolean;
+}
+const useTodos = () => {
+  const fetchTodos = () => {
+    return axios
+      .get<Todo[]>("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => res.data);
+  };
+  return useQuery<Todo[], Error>({
+    queryKey: ["todos"],
+    queryFn: fetchTodos,
+  });
+};
+export default useTodos;
+```
+>usage
+```js
+const { data: todos, error, isLoading } = useTodos();
+```
+
+### React Query Dev Tools
+
+```js
+npm i @tanstack/react-query-devtools@4.28
+```
+### React Query Configuration
+
+```js
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 3,
+      cacheTime: 300_00, // 5 mins
+      staleTime: 10 * 1000,
+      refetchOnWindowFocus: false, // refetch tab is navigated back
+      refetchOnReconnect: true,
+      refetchOnMount: true,
+    },
+  },
+});
+```
+
+ 
