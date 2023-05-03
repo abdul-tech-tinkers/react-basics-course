@@ -12,6 +12,10 @@
 - [React Query](#react-query)
     - [React Query Dev Tools](#react-query-dev-tools)
     - [React Query Configuration](#react-query-configuration)
+- [React Testing](#react-testing)
+    - [Setup the Testing Library and Jest in React Project](#setup-the-testing-library-and-jest-in-react-project)
+    - [What to test](#what-to-test)
+    - [What not to test](#what-not-to-test)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
@@ -343,4 +347,45 @@ const queryClient = new QueryClient({
 });
 ```
 
- 
+
+# React Testing
+
+- React testing library, you check the behavior of the DOM when the user clicks on a button or submits a form and so on.
+The guiding principles of this library emphasize a focus on tests that closely resemble how users interact with your web pages.
+You may want to avoid testing the following implementation details:
+- Internal state of a component
+- Internal methods of a component
+- Lifecycle methods of a component
+- Child components
+
+ ### Setup the Testing Library and Jest in React Project
+
+ ```js
+ npm install @testing-library/jest-dom@5.16.5 @testing-library/react@13.4.0 @testing-library/user-event@14.4.3 jest@29.3.1 jest-environment-jsdom@29.3.1 vitest@0.25.3 --save-dev
+ ```
+
+ package.json
+ ```json
+ "test": "vitest"
+ ```
+
+ ![](docs/ReactTestingQuery.png)
+
+- To select a single DOM element, you can use the getBy, findBy, or queryBy query
+- To select multiple DOM elements, you can use the getAllBy, findAllBy or queryAllBy query
+ - getBy and findBy return an error if there is no match or more than one match
+queryBy returns null if there is no match and returns an error if there is more than one match
+- findBy works well with asynchronous code but not with getBy and queryBy
+- getAllBy returns an error if there is no match and returns an array of matches for one or more than one match
+- findAllBy returns an error if there is no match and returns an array of matches for one or more than one match
+- queryAllBy returns an empty array for no match and returns an array of matches for one or more than one match
+
+### What to test
+- Test component `renders`
+- Test component renders with props
+- Test component renders in different states e.g navbar login or logout
+- Test component reacts to events.
+### What not to test
+- do not test implementation details -React Testing Library philosophy
+- do not test third party code.
+- do not test code that is not important from a user point of view - e.g utility function used in component. test the output of the function instead.
