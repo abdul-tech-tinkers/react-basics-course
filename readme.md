@@ -369,16 +369,6 @@ You may want to avoid testing the following implementation details:
  "test": "vitest"
  ```
 
- ![](docs/ReactTestingQuery.png)
-
-- To select a single DOM element, you can use the getBy, findBy, or queryBy query
-- To select multiple DOM elements, you can use the getAllBy, findAllBy or queryAllBy query
- - getBy and findBy return an error if there is no match or more than one match
-queryBy returns null if there is no match and returns an error if there is more than one match
-- findBy works well with asynchronous code but not with getBy and queryBy
-- getAllBy returns an error if there is no match and returns an array of matches for one or more than one match
-- findAllBy returns an error if there is no match and returns an array of matches for one or more than one match
-- queryAllBy returns an empty array for no match and returns an array of matches for one or more than one match
 
 ### What to test
 - Test component `renders`
@@ -389,3 +379,23 @@ queryBy returns null if there is no match and returns an error if there is more 
 - do not test implementation details -React Testing Library philosophy
 - do not test third party code.
 - do not test code that is not important from a user point of view - e.g utility function used in component. test the output of the function instead.
+
+
+ ![](docs/ReactTestingQuery.png)
+
+- To select a single DOM element, returns matching node for a query, and throw a descriptive error if no elements match or if more than one match is found. you can use the 
+  - getBy
+  - findBy, or 
+  - queryBy query
+- To select multiple DOM elements, you can use the 
+  - getAllBy, 
+  - findAllBy 
+  - queryAllBy query
+ - The suffix can be on of - Role, LabelText, PlaceHolderText, Text, Display Value, AltText, Title and finally TestId. 
+ - getBy and findBy return an error if there is no match or more than one match
+queryBy returns null if there is no match and returns an error if there is more than one match
+- findBy works well with asynchronous code but not with getBy and queryBy
+- getAllBy returns an error if there is no match and returns an array of matches for one or more than one match
+- findAllBy returns an error if there is no match and returns an array of matches for one or more than one match
+- queryAllBy returns an empty array for no match and returns an array of matches for one or more than one match
+- ***getByRole:*** role="button" fro custom role, or use the default role
