@@ -16,6 +16,10 @@
     - [Setup the Testing Library and Jest in React Project](#setup-the-testing-library-and-jest-in-react-project)
     - [What to test](#what-to-test)
     - [What not to test](#what-not-to-test)
+    - [vitest](#vitest)
+      - [Specify Timeout](#specify-timeout)
+      - [Skipping Suites and Tests](#skipping-suites-and-tests)
+      - [unimplemented test suite and tests.](#unimplemented-test-suite-and-tests)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
@@ -398,4 +402,54 @@ queryBy returns null if there is no match and returns an error if there is more 
 - getAllBy returns an error if there is no match and returns an array of matches for one or more than one match
 - findAllBy returns an error if there is no match and returns an array of matches for one or more than one match
 - queryAllBy returns an empty array for no match and returns an array of matches for one or more than one match
-- ***getByRole:*** role="button" fro custom role, or use the default role
+- ***getByRole:*** role="button" fro custom role, or use the default role, textbox, checkbox, button, combobox etc. 
+
+
+### vitest
+
+#### Specify Timeout
+```ts
+import { test } from 'vitest'
+
+test('name', async () => { /* ... */ }, 1000)
+```
+
+```ts
+import { beforeAll } from 'vitest'
+
+beforeAll(async () => { /* ... */ }, 1000)
+```
+
+#### Skipping Suites and Tests
+
+```ts
+import { assert, describe, it } from 'vitest'
+
+describe.skip('skipped suite', () => {
+  it('test', () => {
+    // Suite skipped, no error
+    assert.equal(Math.sqrt(4), 3)
+  })
+})
+
+describe('suite', () => {
+  it.skip('skipped test', () => {
+    // Test skipped, no error
+    assert.equal(Math.sqrt(4), 3)
+  })
+})
+```
+
+#### unimplemented test suite and tests.
+
+```ts
+import { describe, it } from 'vitest'
+
+// An entry will be shown in the report for this suite
+describe.todo('unimplemented suite')
+
+// An entry will be shown in the report for this test
+describe('suite', () => {
+  it.todo('unimplemented test')
+})
+```
