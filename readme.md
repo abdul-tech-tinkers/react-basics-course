@@ -20,6 +20,7 @@
       - [Specify Timeout](#specify-timeout)
       - [Skipping Suites and Tests](#skipping-suites-and-tests)
       - [unimplemented test suite and tests.](#unimplemented-test-suite-and-tests)
+    - [Mocking with jest](#mocking-with-jest)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
@@ -453,3 +454,20 @@ describe('suite', () => {
   it.todo('unimplemented test')
 })
 ```
+
+### Mocking with jest
+
+https://www.youtube.com/watch?v=kCe1DDFy09I
+
+**Mocking Math.Random() function**
+```ts
+let randomSpy = jest.spyOn(Math,"random").mockReturnValue(0.5);
+randomSpy.mockClear().mockImplementation(()=>{})
+```
+
+```ts
+jest.mock("@material-ui/data-grid",()=>({
+  DataGrid: jest.fn(()=> <div>Table</div>)
+}))
+```
+![](docs/2023-05-20_21h29_25.png)
