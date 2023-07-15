@@ -22,7 +22,11 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
   let endpoint = "/genres";
   const { data: genres, error, isLoading } = useGenres();
 
-  if (error) return null;
+  if (error) {
+    console.log(`error useGenres ${error}`);
+    return null;
+  }
+
   return (
     <>
       <Heading fontSize="2xl" marginX={5} marginBottom={3}>
@@ -30,7 +34,7 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
       </Heading>
       <List>
         {isLoading && <Spinner></Spinner>}
-        {genres.map((genre) => (
+        {genres?.results?.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
               <Image

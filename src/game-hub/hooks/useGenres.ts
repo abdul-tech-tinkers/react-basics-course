@@ -5,8 +5,16 @@ import genresService, {
 } from "../services/genres-service";
 import useData from "./useData";
 
+import apiClient from "../services/api-client";
+import { useQuery } from "@tanstack/react-query";
+
 const useGenres = () => {
-  let endpoint = "/genres";
- return useData<Genre>({endpoint});
+  return useQuery({
+    queryKey: ["GetGenres"],
+    queryFn: async () => {
+      const response = await apiClient.get<GetGenreResponse>("/genres");
+      return response.data;
+    },
+  });
 };
 export default useGenres;

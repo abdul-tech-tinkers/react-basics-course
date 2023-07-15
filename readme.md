@@ -460,6 +460,7 @@ describe('suite', () => {
 https://www.youtube.com/watch?v=kCe1DDFy09I
 
 **Mocking Math.Random() function**
+
 ```ts
 let randomSpy = jest.spyOn(Math,"random").mockReturnValue(0.5);
 randomSpy.mockClear().mockImplementation(()=>{})
@@ -471,3 +472,5 @@ jest.mock("@material-ui/data-grid",()=>({
 }))
 ```
 ![](docs/2023-05-20_21h29_25.png)
+
+
