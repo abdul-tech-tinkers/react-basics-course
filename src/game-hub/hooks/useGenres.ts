@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import genresService, {
   Genre,
-  GetGenreResponse,
+  FetchResponse,
 } from "../services/genres-service";
 import useData from "./useData";
 
@@ -12,7 +11,7 @@ const useGenres = () => {
   return useQuery({
     queryKey: ["GetGenres"],
     queryFn: async () => {
-      const response = await apiClient.get<GetGenreResponse>("/genres");
+      const response = await apiClient.get<FetchResponse<Genre>>("/genres");
       return response.data;
     },
   });
