@@ -45,10 +45,10 @@ const GameGrid = ({ gameQuery }: Props) => {
               <GameCardSkeleton />
             </GameCardContainer>
           ))}
-        {error && <Text>Error Loading Games.</Text>}
+        {error && <Text>Error Loading Games. {error.message}</Text>}
 
-        {games.length === 0 && <Heading>No Games</Heading>}
-        {games.map((game) => (
+        {games?.results?.length === 0 && <Heading>No Games</Heading>}
+        {games?.results?.map((game) => (
           <GameCardContainer key={game.id}>
             <GameCard key={game.id} game={game} />
           </GameCardContainer>

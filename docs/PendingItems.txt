@@ -1,0 +1,3 @@
+ - Complete the remaining items
+ - publish the app to vercel
+ - update readme with certification and learning and app screen shots.

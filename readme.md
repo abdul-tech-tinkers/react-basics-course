@@ -1,3 +1,6 @@
+# Certificate
+![Alt text](docs/cert.png)
+- [Certificate](#certificate)
 - [React - Installation](#react---installation)
   - [Getting Started](#getting-started)
   - [Building Components](#building-components)
@@ -274,6 +277,8 @@ vercel
   - no caching : caching=> the process of storing data in a place where it can be accessed more quickly and efficiently in the future
 - **ReactQuery** - powerful library for managing data fetching and caching in react applications.
 - Doesn't care how we fetch the data using fetchapi or axios. it is concerned about caching and managing data
+- Use React Query initial data for optimization, provide a json with initial values.
+- Also use staletime to avoid data refetching.
   
 ![](docs/2023-04-20_12h24_10.tif)
 - Redux adds lot of complexity and biloperate code

@@ -1,8 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../../App";
 import { Game, GetGamesResponse } from "../services/game-service";
 import { Genre } from "../services/genres-service";
-import useData from "./useData";
 import { Platform } from "./usePlatforms";
+import apiClient, { FetchResponse } from "../services/api-client";
 
 const useGames = (gameQuery: GameQuery) => {
   // ``;
@@ -27,24 +28,39 @@ const useGames = (gameQuery: GameQuery) => {
   // }, []);
 
   // return { games, error, isLoading };
-  let endpoint = "/games";
 
-  return useData<Game>({
-    endpoint,
-    requestConfig: {
-      params: {
-        genres: gameQuery?.genre?.id,
-        platforms: gameQuery?.platform?.id,
-        ordering: gameQuery?.ordering,
-        search: gameQuery?.searchText,
-      },
+  // return useData<Game>({
+  //   endpoint,
+  //   requestConfig: {
+  //     params: {
+  //       genres: gameQuery?.genre?.id,
+  //       platforms: gameQuery?.platform?.id,
+  //       ordering: gameQuery?.ordering,
+  //       search: gameQuery?.searchText,
+  //     },
+  //   },
+  //   deps: [
+  //     gameQuery?.genre?.id,
+  //     gameQuery?.platform?.id,
+  //     gameQuery?.ordering,
+  //     gameQuery?.searchText,
+  //   ],
+  // });
+
+  let endpoint = "/games";
+  return useQuery<FetchResponse<Game>, Error>({
+    queryKey: ["games", gameQuery],
+    queryFn: async () => {
+      const response = await apiClient.get<FetchResponse<Game>>(endpoint, {
+        params: {
+          genres: gameQuery?.genre?.id,
+          parent_platforms: gameQuery?.platform?.id,
+          ordering: gameQuery?.ordering,
+          search: gameQuery?.searchText,
+        },
+      });
+      return response?.data;
     },
-    deps: [
-      gameQuery?.genre?.id,
-      gameQuery?.platform?.id,
-      gameQuery?.ordering,
-      gameQuery?.searchText,
-    ],
   });
 };
 export default useGames;

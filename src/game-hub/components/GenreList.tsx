@@ -1,6 +1,5 @@
 import React from "react";
 import useGenres from "../hooks/useGenres";
-import useData from "../hooks/useData";
 import { Genre } from "../services/genres-service";
 import {
   HStack,
@@ -24,7 +23,7 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
 
   if (error) {
     console.log(`error useGenres ${error}`);
-    return null;
+    return <Text color="tomato">Error Loading Genres</Text>;
   }
 
   return (
