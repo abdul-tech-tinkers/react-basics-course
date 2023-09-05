@@ -1,9 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../../App";
-import { Game, GetGamesResponse } from "../services/game-service";
-import { Genre } from "../services/genres-service";
 import { Platform } from "./usePlatforms";
 import apiClient, { FetchResponse } from "../services/api-client";
+
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
+}
 
 const useGames = (gameQuery: GameQuery) => {
   // ``;

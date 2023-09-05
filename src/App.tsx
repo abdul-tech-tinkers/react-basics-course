@@ -13,9 +13,9 @@ import NavBar from "./game-hub/components/NavBar";
 import GameGrid from "./game-hub/components/GameGrid";
 import GenreList from "./game-hub/components/GenreList";
 import { useState } from "react";
-import { Genre } from "./game-hub/services/genres-service";
+import { Genre } from "./game-hub/hooks/useGenres";
 import PlatformSelector from "./game-hub/components/PlatformSelector";
-import { Platform } from "./game-hub/services/game-service";
+import { Platform } from "./game-hub/hooks/usePlatforms";
 import SortSelector from "./game-hub/components/SortSelector";
 
 export interface GameQuery {

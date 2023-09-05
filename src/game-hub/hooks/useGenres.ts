@@ -1,8 +1,10 @@
-import genresService, {
-  Genre,
-  FetchResponse,
-} from "../services/genres-service";
+import genresService, { FetchResponse } from "../services/genres-service";
 
+export interface Genre {
+  id: number;
+  name: string;
+  image_background: string;
+}
 import apiClient from "../services/api-client";
 import { useQuery } from "@tanstack/react-query";
 

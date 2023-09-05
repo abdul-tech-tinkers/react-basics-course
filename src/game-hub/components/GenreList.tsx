@@ -1,6 +1,6 @@
 import React from "react";
 import useGenres from "../hooks/useGenres";
-import { Genre } from "../services/genres-service";
+import { Genre } from "../hooks/useGenres";
 import {
   HStack,
   List,
