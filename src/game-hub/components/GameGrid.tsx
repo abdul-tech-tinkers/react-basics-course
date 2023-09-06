@@ -1,9 +1,10 @@
 import useGames from "../hooks/useGames";
-import { Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { Button, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { GameQuery } from "../../App";
+import React from "react";
 
 interface Props {
   gameQuery: GameQuery;
@@ -12,7 +13,14 @@ interface Props {
 const GameGrid = ({ gameQuery }: Props) => {
   console.log("ordering" + gameQuery?.ordering);
   let endpoint = "/games";
-  const { data: games, error, isLoading } = useGames(gameQuery);
+  const {
+    data: games,
+    error,
+    isLoading,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
@@ -37,13 +45,21 @@ const GameGrid = ({ gameQuery }: Props) => {
           ))}
         {error && <Text>Error Loading Games. {error.message}</Text>}
 
-        {games?.results?.length === 0 && <Heading>No Games</Heading>}
-        {games?.results?.map((game) => (
-          <GameCardContainer key={game.id}>
-            <GameCard key={game.id} game={game} />
-          </GameCardContainer>
+        {games?.pages?.map((page, index) => (
+          <React.Fragment key={index}>
+            {page?.results?.map((game) => (
+              <GameCardContainer key={game.id}>
+                <GameCard key={game.id} game={game} />
+              </GameCardContainer>
+            ))}
+          </React.Fragment>
         ))}
       </SimpleGrid>
+      {hasNextPage && (
+        <Button marginLeft={3} marginTop={2} onClick={() => fetchNextPage()}>
+          {isFetchingNextPage ? "Loading..." : "Load More"}
+        </Button>
+      )}
     </>
   );
 };
