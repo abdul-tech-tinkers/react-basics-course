@@ -15,6 +15,7 @@
 - [React Query](#react-query)
     - [React Query Dev Tools](#react-query-dev-tools)
     - [React Query Configuration](#react-query-configuration)
+    - [infinite scroll with scroll bar](#infinite-scroll-with-scroll-bar)
 - [React Testing](#react-testing)
     - [Setup the Testing Library and Jest in React Project](#setup-the-testing-library-and-jest-in-react-project)
     - [What to test](#what-to-test)
@@ -356,8 +357,9 @@ const queryClient = new QueryClient({
   },
 });
 ```
-
-
+### infinite scroll with scroll bar
+- npm package `react-infinite-scroll-component`
+-  yarn add react-infinite-scroll-component
 # React Testing
 
 - React testing library, you check the behavior of the DOM when the user clicks on a button or submits a form and so on.
