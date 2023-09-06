@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import create from "../services/http-service";
+
 import { AxiosRequestConfig } from "axios";
 import { BsEmojiWink } from "react-icons/bs";
-
-
 
 // interface Props {
 //   endpoint: string;
