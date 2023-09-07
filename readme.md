@@ -25,6 +25,7 @@
       - [Skipping Suites and Tests](#skipping-suites-and-tests)
       - [unimplemented test suite and tests.](#unimplemented-test-suite-and-tests)
     - [Mocking with jest](#mocking-with-jest)
+- [Global State Management](#global-state-management)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
@@ -481,3 +482,13 @@ jest.mock("@material-ui/data-grid",()=>({
 ![](docs/2023-05-20_21h29_25.png)
 
 
+# Global State Management
+ - reducer
+ - usecontext
+ - state management using lib like zustand or redux
+
+Reducer
+ - A function that allows us to centralize state updates in a component.
+  
+Zustand store
+ - npm i zustand@4.3.7

@@ -7,16 +7,16 @@ import {
 import { useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-const SearchInput = ({ onSearch }: Props) => {
+import useGameQueryStore from "../../store";
+
+const SearchInput = () => {
   const [searchText, setSearchText] = useState("");
+  const setSearchTextInStore = useGameQueryStore((s) => s.setSearchText);
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onSearch(searchText);
+        setSearchTextInStore(searchText);
       }}
     >
       <InputGroup>
@@ -32,7 +32,7 @@ const SearchInput = ({ onSearch }: Props) => {
           <InputRightElement
             onClick={() => {
               setSearchText("");
-              onSearch("");
+              setSearchTextInStore("");
             }}
             children={<MdOutlineClose />}
           ></InputRightElement>
