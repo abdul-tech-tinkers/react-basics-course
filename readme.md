@@ -26,6 +26,7 @@
       - [unimplemented test suite and tests.](#unimplemented-test-suite-and-tests)
     - [Mocking with jest](#mocking-with-jest)
 - [Global State Management](#global-state-management)
+- [Routing](#routing)
 
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
@@ -492,3 +493,6 @@ Reducer
   
 Zustand store
  - npm i zustand@4.3.7
+
+# Routing
+npm i react-router-dom@6.10.0
