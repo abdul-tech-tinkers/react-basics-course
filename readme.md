@@ -34,6 +34,7 @@ Link: [Deployed App on Azure Static App](https://ambitious-wave-0430f2910.2.azur
 # Certificates
 ![Alt text](docs/cert.png)
 
+![Alt text](docs/2023-09-09_20h56_10.png)
 
 # Screenshots
 
