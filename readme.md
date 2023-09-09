@@ -1,6 +1,5 @@
-# Certificate
-![Alt text](docs/cert.png)
-- [Certificate](#certificate)
+- [Certificates](#certificates)
+- [Screenshots](#screenshots)
 - [React - Installation](#react---installation)
   - [Getting Started](#getting-started)
   - [Building Components](#building-components)
@@ -31,6 +30,21 @@
 [![Deployment Status](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml/badge.svg)](https://github.com/abdul-tech-tinkers/react-game-discovery-app-/actions/workflows/azure-static-web-apps-ambitious-wave-0430f2910.yml)
 
 Link: [Deployed App on Azure Static App](https://ambitious-wave-0430f2910.2.azurestaticapps.net/)
+
+# Certificates
+![Alt text](docs/cert.png)
+
+
+# Screenshots
+
+Home Page
+![Alt text](docs/2023-09-09_20h42_36.png)
+
+Game Details Page
+![Alt text](docs/2023-09-09_20h42_44.png)
+
+
+
 
 # React - Installation
 use `vite@latest` to setup react native app with `TypeScript`
