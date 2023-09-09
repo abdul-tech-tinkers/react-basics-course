@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import { Genre } from "./game-hub/hooks/useGenres";
-import { Platform } from "./game-hub/hooks/usePlatforms";
+import { Genre } from "./game-hub/entities/Genre";
+import { Platform } from "./game-hub/entities/Platform";
 
 interface GameQuery {
   genre?: Genre | null;
