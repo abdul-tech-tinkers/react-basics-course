@@ -36,7 +36,7 @@ Link: [Deployed App on Azure Static App](https://ambitious-wave-0430f2910.2.azur
 
 ![Alt text](docs/2023-09-09_20h56_10.png)
 
-# Screenshots
+# Screenshots  
 
 Home Page
 ![Alt text](docs/2023-09-09_20h42_36.png)
